@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}ABK | Homepage{% endblock  %}
+
+{% block head_str %}<meta http-equiv="refresh" content="10">{% endblock  %}
+
+{% block content %}
+        <div class="d-inline-flex btn-group mt-3 mx-3 mb-3">
+            <a href="{% url "add" %}" class="btn btn-outline-secondary">Ekle</a>
+            <a href="{% url "remove" %}" class="btn btn-outline-danger">Çıkar</a>     
+        </div>
+        <div class="d-flex mx-2">
+            <table class="table table-bordered table-responsive table-striped table-hover ">
+                <thead>
+                    <th>Ürün Adı</th>
+                    <th>Ürün Kodu</th>
+                    <th>Adet</th>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <td>{{product.product}}</td>
+                            <td>{{product.serial_number}}</td>
+                            <td {% if product.quantity <= 0 %}class="bg-danger"{% endif %}>{{product.quantity}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    
+    
+
+    
+{% endblock %}

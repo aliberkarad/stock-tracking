@@ -1,2 +1,2 @@
-# stock-tracking
-Django Stock Tracking Web App
+# Django Stock Tracking Web App
+
